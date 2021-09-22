@@ -1,0 +1,90 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace POEAssignment
+{
+    abstract class Character : Tile
+    {
+        //Member Variables
+        protected int Hp;
+        protected int MaxHp;
+        protected int Damage;
+
+        Tile[] characterVision = new Tile[4];
+
+        public int hp
+        {
+            get { return Hp; }
+            set { Hp = value; }
+        }  
+
+        public int maxhp
+        {
+            get { return MaxHp; }
+            set { MaxHp = value; }
+        }       
+
+        public int damage
+        {
+            get { return Damage; }
+            set { Damage = value; }
+        }
+
+        public enum MovementEnum
+        {
+            Up = 0,
+            Down = 1,
+            Left = 3,
+            Right = 4,
+            NoMovement = 5
+        }
+
+        //CREATE CONSTRUCTOR METHO QUESTIOIN 2.3 POINT 1
+
+        protected Character(int i, int j, TileType ConstructType, char ConstructSymbol) : base(i, j, ConstructType)
+        {
+            ConstructSymbol = Symbol;
+        }
+
+
+
+        public int Positions()
+        {
+            return ;
+        }
+
+        public virtual void Attack(Character target)
+        {
+            target.Hp = target.Hp - 10;
+        }
+
+        public bool IsDead = false;    //Check if the character is dead
+        
+
+        public virtual bool CheckRange(Character target)    //Check if the target is in range of the character
+        {
+            return true;
+        }
+
+        private int DistanceTo(Character target)    //Determines the absolute distance between the character and the target
+        {
+            return 5;
+        }
+
+        public void Move(MovementEnum move)  //Edites a units X and Y valaues in order to move it
+        {
+
+        }
+
+        public abstract MovementEnum ReturnMove(MovementEnum move = 0);  //Returns a direction of movement
+         
+
+        public abstract override string ToString()  //overrides traditional object ToString Method
+        {
+
+        }
+    }
+}
