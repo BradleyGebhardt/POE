@@ -16,7 +16,6 @@ namespace POEAssignment
             Enemy = 1,
             Gold = 3,
             Weapon = 4
-
         }
 
         public int x
@@ -45,11 +44,7 @@ namespace POEAssignment
             y = j;
             TypeEnum = ConstructType;
         }
-        /*struct Coordinate
-        {
-            public int posX;
-            public int posY;
-        }*/
-        //Use Coordinate point = new Coordinate().
+        
+
     }
 }

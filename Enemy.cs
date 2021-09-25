@@ -18,11 +18,14 @@ namespace POEAssignment
             set { enemyDamage = value; }
         }
 
-        public Enemy(int i, int j, TileType ConstructType, char Symbol, int ConstructEnemyDamage, int ConstructHp) : base(i, j, ConstructType, Symbol)
+        public Enemy(int x, int y, TileType ConstructType, char Symbol, int ConstructEnemyDamage, int ConstructHp, int ConstructMaxHP) : base(x, y, ConstructType, Symbol)
         {
-            ConstructEnemyDamage = enemyDamage;
-            ConstructHp = Hp;
+            damage = ConstructEnemyDamage;
+            hp = ConstructHp;
+            maxhp = ConstructMaxHP;
+            
         }
+
         public String toString(string name, int x, int y, int Damage)
         {
             return name + " at [" + x.ToString() + y.ToString() + "]" + Damage;

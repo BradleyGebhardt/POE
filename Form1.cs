@@ -21,5 +21,10 @@ namespace POEAssignment
         {
 
         }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

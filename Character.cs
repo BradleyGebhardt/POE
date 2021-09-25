@@ -13,7 +13,7 @@ namespace POEAssignment
         protected int MaxHp;
         protected int Damage;
 
-        Tile[] characterVision = new Tile[4];
+        public Tile[] characterVision = new Tile[4];
 
         public int hp
         {
@@ -35,16 +35,16 @@ namespace POEAssignment
 
         public enum MovementEnum
         {
-            Up = 0,
-            Down = 1,
-            Left = 3,
-            Right = 4,
-            NoMovement = 5
+            NoMovement = 0,
+            Up = 1,
+            Left = 2,
+            Right = 3,
+            Down = 4
         }
 
         //CREATE CONSTRUCTOR METHO QUESTIOIN 2.3 POINT 1
 
-        protected Character(int i, int j, TileType ConstructType, char ConstructSymbol) : base(i, j, ConstructType)
+        protected Character(int x, int y, TileType ConstructType, char ConstructSymbol) : base(x, y, ConstructType)
         {
             ConstructSymbol = Symbol;
         }
@@ -80,11 +80,11 @@ namespace POEAssignment
         }
 
         public abstract MovementEnum ReturnMove(MovementEnum move = 0);  //Returns a direction of movement
-         
 
-        public abstract override string ToString()  //overrides traditional object ToString Method
-        {
 
-        }
+        public abstract override string ToString();  //overrides traditional object ToString Method
+        
+
+        
     }
 }

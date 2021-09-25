@@ -11,10 +11,7 @@ namespace POEAssignment
         public Goblin(int i, int j, TileType ConstructType, char Symbol, int ConstructEnemyDamage, int ConstructHp) : base(i, j, ConstructType, Symbol, 1, 10)
         {
 
-        }
-        
-
-        
+        }        
 
         public override MovementEnum ReturnMove(MovementEnum GoblinMoves)
         {
@@ -27,13 +24,13 @@ namespace POEAssignment
                 move = r.Next(0, 5);
                 ValidMove = true;
 
-                if((Surroundings[move].ToString() != "Wall") & (Surroundings[move].ToString() != "Hero"))
+                if((characterVision[move].ToString() != "Wall") & (characterVision[move].ToString() != "Hero"))
                 {
                     ValidMove = true;
                 }
             }
 
-            switch(move)
+            /*switch(move)
             {
                 case 0:
                     Output = MovementEnum.NoMovement;
@@ -54,8 +51,8 @@ namespace POEAssignment
                 case 4:
                     Output = MovementEnum.Down;
                     break;
-            }
-            return (Output);
+            }*/
+            return (MovementEnum)move;
         }
     }
 }
