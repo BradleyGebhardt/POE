@@ -8,26 +8,32 @@ namespace POEAssignment
 {
     abstract class Tile
     {
-        protected int posX;
-        protected int posY;
+        private char symbol;
+        protected int x;
+        protected int y;
         public enum TileType
         {
             Hero = 0,
             Enemy = 1,
-            Gold = 3,
-            Weapon = 4
+            Gold = 2,
+            Weapon = 3,
+            Obstacle = 4,
+            EmptyTile = 5
         }
 
-        public int x
+        public char getSymbol()
         {
-            get { return x; }
-            set { x = value; }
+            return symbol;
+        }
+        
+        public int GetX()
+        {
+            return x; 
         }
 
-        public int y
+        public int GetY()
         {
-            get { return y; }
-            set { y = value; }
+            return y;
         }
 
         protected TileType TypeEnum;
@@ -38,11 +44,12 @@ namespace POEAssignment
             set { TypeEnum = value; }
         }
 
-        public Tile(int i, int j, TileType ConstructType)
+        public Tile(int i, int j, TileType ConstructType, char Symbol)
         {
             x = i;
             y = j;
             TypeEnum = ConstructType;
+            symbol = Symbol;
         }
         
 

@@ -12,6 +12,7 @@ namespace POEAssignment
         protected int Hp;
         protected int MaxHp;
         protected int Damage;
+        protected char Symbol;
 
         public Tile[] characterVision = new Tile[4];
 
@@ -42,9 +43,7 @@ namespace POEAssignment
             Down = 4
         }
 
-        //CREATE CONSTRUCTOR METHO QUESTIOIN 2.3 POINT 1
-
-        protected Character(int x, int y, TileType ConstructType, char ConstructSymbol) : base(x, y, ConstructType)
+        protected Character(int x, int y, TileType ConstructType, char ConstructSymbol) : base(x, y, ConstructType, ConstructSymbol)
         {
             ConstructSymbol = Symbol;
         }
@@ -53,7 +52,7 @@ namespace POEAssignment
 
         public int Positions()
         {
-            return ;
+            return x;
         }
 
         public virtual void Attack(Character target)

@@ -26,9 +26,9 @@ namespace POEAssignment
             
         }
 
-        public String toString(string name, int x, int y, int Damage)
+        public override String ToString()
         {
-            return name + " at [" + x.ToString() + y.ToString() + "]" + Damage;
+            return "EnemyClassName" + " at [" + x.ToString() + y.ToString() + "]" + Damage;
         }
         
     }

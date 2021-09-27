@@ -8,7 +8,7 @@ namespace POEAssignment
 {
     class Goblin : Enemy
     {
-        public Goblin(int i, int j, TileType ConstructType, char Symbol, int ConstructEnemyDamage, int ConstructHp) : base(i, j, ConstructType, Symbol, 1, 10)
+        public Goblin(int i, int j, TileType ConstructType, char Symbol, int ConstructEnemyDamage, int ConstructHp) : base(i, j, ConstructType, 'G', 1, 10, 10)
         {
 
         }        
@@ -19,7 +19,7 @@ namespace POEAssignment
             int move = 0;
             MovementEnum Output = MovementEnum.NoMovement;
 
-            while(ValidMove = false)
+            while(ValidMove == false)
             {
                 move = r.Next(0, 5);
                 ValidMove = true;
@@ -29,30 +29,12 @@ namespace POEAssignment
                     ValidMove = true;
                 }
             }
-
-            /*switch(move)
-            {
-                case 0:
-                    Output = MovementEnum.NoMovement;
-                    break;
-
-                case 1:
-                    Output = MovementEnum.Up;
-                    break;
-
-                case 2:
-                    Output = MovementEnum.Left;
-                    break;
-
-                case 3:
-                    Output = MovementEnum.Right;
-                    break;
-
-                case 4:
-                    Output = MovementEnum.Down;
-                    break;
-            }*/
             return (MovementEnum)move;
+        }
+
+        public override String ToString()
+        {
+            return "Goblin" + " at [" + x.ToString() + y.ToString() + "]" + Damage;
         }
     }
 }

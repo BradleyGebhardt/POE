@@ -8,7 +8,7 @@ namespace POEAssignment
 {
     class EmptyTile : Tile
     {
-        public EmptyTile(int i, int j, TileType ConstructType) : base(i, j, ConstructType)
+        public EmptyTile(int x, int y, TileType ConstructType) : base(x, y, ConstructType, '.')
         {
 
         }

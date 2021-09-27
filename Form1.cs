@@ -12,9 +12,14 @@ namespace POEAssignment
 {
     public partial class Form1 : Form
     {
+        GameEngine engine;
+
         public Form1()
         {
             InitializeComponent();
+
+            engine = new GameEngine();
+            lblMap.Text = engine.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -25,6 +30,21 @@ namespace POEAssignment
         private void btnUp_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WeaponRange_Label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

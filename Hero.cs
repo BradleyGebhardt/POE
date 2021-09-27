@@ -8,7 +8,7 @@ namespace POEAssignment
 {
     class Hero : Character
     {
-        public Hero(int x, int y, TileType ConstructType, char Symbol, int ConstructHp, int ConstructMaxHP) : base(x, y, ConstructType, Symbol)
+        public Hero(int x, int y, TileType ConstructType, char Symbol, int ConstructHp, int ConstructMaxHP) : base(x, y, ConstructType, 'H')
         {
             damage = 2;
             hp = ConstructHp;
@@ -20,14 +20,14 @@ namespace POEAssignment
 
         }
 
-        public ReturnMove() //Figuring out 
+        public override MovementEnum ReturnMove(MovementEnum move)
         {
-            
+            return Character.MovementEnum.NoMovement;
         }
 
-        public string ToString()
+        public override String ToString()
         {
-
+            return "Hero" + " at [" + x.ToString() + y.ToString() + "]" + Damage;
         }
     }
 }

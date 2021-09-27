@@ -17,9 +17,11 @@ namespace POEAssignment
         private int MaxHeight;
         private int MinWidth;
         private int MaxWidth;
+        public int borderHeight;
+        public int borderWidth;
         private int AmtEnemy;
         Random numbers = new Random();
-        Hero player = new Hero();
+        Hero player;
 
         public Map(int minHeight, int maxHeight, int minWidth, int maxWidth, int amtEnemy)
         {
@@ -32,9 +34,16 @@ namespace POEAssignment
             mapHeight =  numbers.Next(minHeight, maxHeight);
             mapWidth = numbers.Next(minWidth, maxWidth);
 
-            map = new Tile[mapWidth, mapHeight];
+            borderHeight = mapHeight + 2;
+            borderWidth = mapWidth + 2;
+
+            map = new Tile[borderWidth, borderHeight];
 
             enemies = new Enemy[AmtEnemy];
+
+            player = (Hero)Create(Tile.TileType.Hero);
+
+            MakeMap();
         }
 
         private Tile Create(Tile.TileType type)
@@ -45,7 +54,7 @@ namespace POEAssignment
             if(positionX > mapHeight || positionY > mapWidth)
             {
                 return Create(type);
-            }
+            }          
 
             if(type == Tile.TileType.Enemy)
             {
@@ -57,6 +66,23 @@ namespace POEAssignment
             }
 
             return new Hero(positionX, positionY, Tile.TileType.Hero, 'H', 20, 20);
+        }
+
+        private void MakeMap()
+        {
+            for (int x = 0; x < borderWidth; x++)
+            {
+                for (int y = 0; y < borderHeight; y++)
+                {
+                    map[x, y] = new EmptyTile(x, y, Tile.TileType.EmptyTile);
+
+                    if (x == 0 || x == borderHeight - 1 || y == 0 || y == borderWidth - 1)
+                    {
+                        map[x, y] = new Obstacle(x, y, Tile.TileType.Obstacle);
+                    }
+                }
+
+            }
         }
 
         public void UpdateVision()  //Updates the vision array for each character 
