@@ -17,17 +17,12 @@ namespace POEAssignment
         
         public GameEngine()
         {
-            map = new Map(10, 20, 20, 40, 5);
+            map = new Map(10, 15, 10, 15, 5);
         }
         
         public Map GetMap()
         {
             return map;
-        }
-
-        public bool MovePlayer(Character.MovementEnum direction)
-        {
-            return true;
         }
 
         public override String ToString()

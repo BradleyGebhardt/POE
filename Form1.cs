@@ -29,7 +29,8 @@ namespace POEAssignment
 
         private void btnUp_Click(object sender, EventArgs e)
         {
-            
+            engine.GetMap().MoveHero(Character.MovementEnum.Up);
+            lblMap.Text = engine.ToString();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -44,7 +45,8 @@ namespace POEAssignment
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-           
+            engine.GetMap().MoveHero(Character.MovementEnum.Down);
+            lblMap.Text = engine.ToString();
         }
     }
 }

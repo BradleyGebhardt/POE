@@ -22,6 +22,33 @@ namespace POEAssignment
 
         public override MovementEnum ReturnMove(MovementEnum move)
         {
+            switch (move)
+            {
+                case MovementEnum.Up:
+                    {
+                        x--;
+                        return move;
+                    }
+
+                case MovementEnum.Down:
+                    {
+                        x++;
+                        return move;
+                    }
+
+                case MovementEnum.Left:
+                    {
+                        y--;
+                        return move;
+                    }
+
+                case MovementEnum.Right:
+                    {
+                        y++;
+                        return move;
+                    }
+            }
+
             return Character.MovementEnum.NoMovement;
         }
 

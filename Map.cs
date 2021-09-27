@@ -41,15 +41,13 @@ namespace POEAssignment
 
             enemies = new Enemy[AmtEnemy];
 
-            player = (Hero)Create(Tile.TileType.Hero);
-
             MakeMap();
         }
 
         private Tile Create(Tile.TileType type)
         {
-            int positionX = numbers.Next(MinHeight, MaxHeight);
-            int positionY = numbers.Next(MinWidth, MaxWidth);
+            int positionX = numbers.Next(1, mapWidth);
+            int positionY = numbers.Next(1, mapHeight);
 
             if(positionX > mapHeight || positionY > mapWidth)
             {
@@ -76,13 +74,23 @@ namespace POEAssignment
                 {
                     map[x, y] = new EmptyTile(x, y, Tile.TileType.EmptyTile);
 
-                    if (x == 0 || x == borderHeight - 1 || y == 0 || y == borderWidth - 1)
+                    if (x == 0 || x == borderWidth - 1 || y == 0 || y == borderHeight - 1)
                     {
                         map[x, y] = new Obstacle(x, y, Tile.TileType.Obstacle);
                     }
                 }
-
             }
+
+            player = (Hero)Create(Tile.TileType.Hero);
+
+            map[player.GetX(), player.GetY()] = player;
+        }
+
+        public void MoveHero(Character.MovementEnum move)
+        {
+            map[player.GetX(), player.GetY()] = new EmptyTile(player.GetX(), player.GetY(), Tile.TileType.EmptyTile);
+            player.ReturnMove(move);
+            map[player.GetX(), player.GetY()] = player;
         }
 
         public void UpdateVision()  //Updates the vision array for each character 
